@@ -36,7 +36,7 @@
           <ul class="nav navbar-nav">
               <% if user_signed_in? %>
                 <li><%= link_to "Home", home_path, class: "fa fa-home" %></li>
-                <li><%= link_to "Word List", "#", class: "fa fa-list" %></li>
+                <li><%= link_to "Word List", words_path, class: "fa fa-list" %></li>
                 <li><%= link_to "Categories", "#", class: "fa fa-tasks" %></li>
                 <li><%= link_to "Lesson", "#", class: "fa fa-pencil-square-o" %></li>
                 <li><%= link_to "Result", "#", class: "fa fa-check-square-o" %></li>

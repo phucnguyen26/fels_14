@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
   
+  resources :categories, only: [:index]
+  resources :words, only: [:index]
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  match "/signup",  to: "users#new",            via: :get
-  match "/signin",  to: "sessions#new",         via: :get
-  match "/signout", to: "sessions#destroy",     via: :delete
+  match "/signup", to: "users#new", via: :get
+  match "/signin", to: "sessions#new", via: :get
+  match "/signout", to: "sessions#destroy", via: :delete
   
   root to: "static_pages#index"
   match "/about",   to: "static_pages#about",    as: :about,    via: :get
