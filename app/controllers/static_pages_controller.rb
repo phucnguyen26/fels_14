@@ -5,7 +5,7 @@ class StaticPagesController < ApplicationController
   end
   
   def home
-    #@user = current_user
+    @user = current_user
   end
    
   def about
