@@ -1,2 +1,9 @@
-<h1>Categories#index</h1>
-<p>Find me in app/views/categories/index.html.erb</p>
+<h1>List of lessons</h1>
+<% @lessons.each do |lesson| %>
+    <div class = "row">
+        <h3><%= lesson.name %></h3>
+        <p><i>You have learned <%= lesson.num_learned %>/20</i></p>
+    </div>
+    <%= link_to "Start", lesson, class: "btn btn-primary" %>
+    <hr />
+<% end %>
