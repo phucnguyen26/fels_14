@@ -2,6 +2,7 @@ class Word < ActiveRecord::Base
   belongs_to :category
   has_many :user_words
   has_many :word_answers
+  has_many :lesson_words
   
   scope :all_by_category, ->(category_id) {
     where(category_id: category_id)
