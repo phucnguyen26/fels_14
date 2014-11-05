@@ -22,16 +22,17 @@ ActiveRecord::Schema.define(version: 20141030062537) do
   create_table "lesson_words", force: true do |t|
     t.integer  "lesson_id"
     t.integer  "word_id"
+    t.integer  "word_answer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "lesson_words", ["lesson_id"], name: "index_lesson_words_on_lesson_id", using: :btree
   add_index "lesson_words", ["word_id"], name: "index_lesson_words_on_word_id", using: :btree
+  add_index "lesson_words", ["word_answer_id"], name: "index_lesson_words_on_word_answer_id", using: :btree
 
   create_table "lessons", force: true do |t|
     t.string   "name"
-    t.integer  "num_learned"
     t.integer  "user_id"
     t.integer  "category_id"
     t.datetime "created_at"
@@ -51,19 +52,6 @@ ActiveRecord::Schema.define(version: 20141030062537) do
   add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id", using: :btree
   add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true, using: :btree
   add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
-
-  create_table "user_words", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "word_id"
-    t.string   "answer"
-    t.integer  "lesson_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "user_words", ["lesson_id"], name: "index_user_words_on_lesson_id", using: :btree
-  add_index "user_words", ["user_id"], name: "index_user_words_on_user_id", using: :btree
-  add_index "user_words", ["word_id"], name: "index_user_words_on_word_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
