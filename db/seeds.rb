@@ -55,16 +55,9 @@ def make_word_answers
     correct = 1
     word.word_answers.create!(content: content, correct: correct)
   end
-  3.times do |n|
-    words.each do |word|
-      content = Faker::Lorem.word
-      correct = 0
-      word.word_answers.create!(content: content, correct: correct)
-    end
-  end
 end
 
-def make_user_answers
+def make_user_words
   user_id = 1
   10.times do |n|
     word_id = Random.new.rand(200)
@@ -89,8 +82,8 @@ make_users
 make_relationships
 make_categories
 make_words
+make_lessons
 make_word_answers
-# make_lessons
-# make_user_answers
-# make_lesson_words
+make_user_words
+make_lesson_words
 

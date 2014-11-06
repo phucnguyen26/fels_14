@@ -31,9 +31,9 @@ module SessionsHelper
   end
   
   def sign_out
-    current_user.not_validate_password = true
+    user.not_validate_password = true
     current_user.update_attributes(remember_token: User.digest(User.new_remember_token))
-    current_user.not_validate_password = false
+    user.not_validate_password = false
     cookies.delete(:remember_token)
     self.current_user = nil
   end
