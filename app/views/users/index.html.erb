@@ -1,0 +1,18 @@
+<div align = "center">
+<img alt="Rails logo" height = "80" src="/assets/main_index.png" />
+</div>
+<% provide(:title, 'All users') %>
+<h1>All users</h1>
+
+  <% @users.each do |user| %>
+    <br>
+    <%= gravatar_for (user) %>
+    <%= user.id%>
+    <%= link_to user.name, user %>
+
+    <% if current_user.admin? && !current_user?(user) %>
+    |<%= link_to "delete", user, method: :delete,
+                                  data: {confirm: "You sure?"} %><br>
+  <% end %>
+
+<%end%>

@@ -1,0 +1,47 @@
+<div align = "center">
+<img alt="Rails logo" height = "80" src="/assets/main_index.png" />
+</div>
+<% provide(:title, @user.name) %>
+<div class="row">
+  <aside class="col-md-4">
+   
+    <section class="user_info">
+      <h2>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+
+        (<%= @user.microposts.count %> micropost)
+        <%=link_to "|New micropost",new_micropost_path %>
+       
+      </h2>
+    </section>
+     <%= render 'follow_form' if logged_in? %>
+    <section class="stats">
+        <%= render 'shared/stats' %>
+    </section>
+  </aside>
+</div>
+
+
+<ul class ="title">
+	<ul class="microposts">
+	
+  		<% @microposts.each do |micropost| %>
+    		<br><li>
+    				
+    				<%=  micropost.id %>.<b>
+      				<%=  micropost.title %>:</b>
+     				<%= link_to "Show", micropost %>|
+
+      			<%= link_to "Delete", micropost, method: :delete, 
+      										data: { confirm: "You sure?" } %>|
+					  <%= link_to "Edit", edit_micropost_path(micropost) %>|
+					  
+    			</li>
+          
+    	
+
+  	<% end %>
+  	
+	</ul>
+</ul>

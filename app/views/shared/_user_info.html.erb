@@ -1,0 +1,10 @@
+<div align = "center">
+	<%= link_to gravatar_for(current_user)%>
+	<%= current_user.name %><br><br>
+	<span>
+		<%= link_to "View my microposts", current_user %>
+	</span>
+	<span>
+		(<%= pluralize(current_user.microposts.count, "micropost") %>
+	</span>)<br><br>
+</div>

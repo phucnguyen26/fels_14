@@ -1,0 +1,29 @@
+<div align = "center">
+<img alt="Rails logo" height = "80" src="/assets/main_index.png" />
+</div>
+<% provide(:title, 'All Microposts') %>
+<h1>All micropost</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%@microposts.each do |micropost|%>
+    <tr>
+      <td>
+        <%=  micropost.id %>.<b>
+        <%=  micropost.title %>:</b>
+        <%= link_to "Show", micropost %>|</td>
+    <td><% if current_user?(micropost.user) %>
+          <%= link_to "Delete", micropost, method: :delete, 
+                          data: { confirm: "You sure?" } %>|
+          <%= link_to "Edit", edit_micropost_path(micropost) %>|
+     </td><br>
+    </tr>
+    <%end%>
+  <%end%>
+  </tbody>
+</table>

@@ -1,0 +1,7 @@
+<h2>Comments</h2>
+<% @micropost.comments.each do |c| %>
+  <p>
+    <strong>Comment:</strong>
+    <%= c.comment %>
+  </p>
+<% end %>

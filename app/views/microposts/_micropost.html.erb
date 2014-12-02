@@ -1,0 +1,12 @@
+<br><li id="micropost-<%= micropost.id %>">
+Title  : <span class="title"><%= micropost.title %></span><br>
+ 	<%= link_to "Show", micropost %>|
+	<%= link_to "Back", micropost %>
+  	<% if current_user?(micropost.user) %>
+      	<%= link_to "Delete", micropost, method: :delete, 
+      								data: { confirm: "You sure?" } %>|
+      
+      	<%= link_to "Edit", edit_micropost_path, method: :get,
+      								data: { confirm: "You want Update?" } %>|
+    <% end %>
+</li>
