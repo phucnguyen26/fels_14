@@ -111,15 +111,7 @@ footer ul li {
   float: left;
   margin-left: 15px;
 }
-/* mixins, variables, etc. */
 
-#gray-medium-light: #eaeaea;
-
-@mixin box_sizing {
-  -moz-box-sizing:    border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing:         border-box;
-}
 
 /* miscellaneous */
 
@@ -128,7 +120,7 @@ footer ul li {
   float: left;
   width: 100%;
   margin-top: 45px;
-  @include box_sizing;
+
 }
 /* sidebar */
 .
@@ -189,7 +181,7 @@ input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
   margin-bottom: 30px;
-  @include box_sizing;
+
 }
 
 .input {
