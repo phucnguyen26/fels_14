@@ -15,4 +15,3 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
-stylesheet_link_tag :all, cache: true
