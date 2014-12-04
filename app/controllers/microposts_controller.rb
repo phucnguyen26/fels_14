@@ -5,9 +5,11 @@ before_action :correct_user,   only: :destroy
   def new
     @micropost = Micropost.new
   end
+
   def index
     @microposts = Micropost.all
   end
+
   def create
     @micropost = current_user.microposts.build(micropost_params)
         if @micropost.save
@@ -17,6 +19,7 @@ before_action :correct_user,   only: :destroy
             render 'new'
         end
   end
+  
   def show
     @micropost = Micropost.find(params[:id])
      #@comment = @micropost.comments.build(params[:comment])
